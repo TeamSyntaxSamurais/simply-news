@@ -6,8 +6,9 @@ end
 
 post '/register' do
   p params
+# calls method with arg of username from register form
 
-  if self.does_account_exist(params[:email]) == true
+  if does_account_exist(params[:email]) == true
     return { :message => 'email does exist'}.to_json
   end
 
@@ -42,5 +43,12 @@ end
 
 get '/authorization_check' do
   erb :not_found
+  end
+end
+
+get '/logout' do
+  authorization_check
+  session[:current_account] = nil
+  redirect '/'
   end
 end

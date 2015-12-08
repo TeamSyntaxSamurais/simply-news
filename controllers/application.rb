@@ -49,16 +49,13 @@ end
 end
 
 get '/' do
-  @email = session[:email].email
-
+  @account = account
   erb :feed
 end
 
-
-
-
-
-  not_found do
+not_found do
     erb :not_found
   end
-end# end of ApplicationController
+end
+
+# end of ApplicationController

@@ -1,12 +1,14 @@
 require 'bcrypt'
 class Account < ActiveRecord::Base
+  self.table_name = 'accounts'
+
   has_many :account_sources
 
- include BCrypt
+  include BCrypt
 
   #setter
   def password=(password)
-    self.password_digest = Bcrypt::Password.create(password)
+    self.password_digest = BCrypt::Password.create(password)
   end
 
   #getter
@@ -15,7 +17,7 @@ class Account < ActiveRecord::Base
   end
 
   def self.authenticate(email, password)
-    current_account = Account.find_by(account: account)
+    current_account = Account.find_by(email: email)
   #return current account if passwords match
     if (current_account.password == password)
       return current_account

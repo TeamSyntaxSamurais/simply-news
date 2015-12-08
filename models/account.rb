@@ -3,21 +3,23 @@ class Account < ActiveRecord::Base
 
  include BCrypt
 
-def password=(pwd)
-  self.password_digest = Bcrypt::Password.create(pwd)
+  #setter
+  def password=(pwd)
+    self.password_digest = Bcrypt::Password.create(pwd)
+  end
 
-end
+  #getter
+  def password
+    BCrypt::Password.new(self.password_digest)
+  end
 
-def password
-  BCrypt::Password.new(self.password_digest)
-end
-
-def self.authenticate(user_name, password)
-  current_user = Account.find_by(user_name: user_name)
-
-if (current_user.password == password)
-  return current_user
-else
-  return nil
-end
+  def self.authenticate(email, password)
+    current_account = Account.find_by(account: account)
+  #return current account if passwords match
+    if (current_account.password == password)
+      return current_account
+    else
+      return nil
+    end
+  end
 end

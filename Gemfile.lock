@@ -16,13 +16,19 @@ GEM
       tzinfo (~> 1.1)
     arel (6.0.3)
     builder (3.2.2)
+    coderay (1.1.0)
     i18n (0.7.0)
     json (1.8.3)
+    method_source (0.8.2)
     mini_portile2 (2.0.0)
     minitest (5.8.3)
     nokogiri (1.6.7)
       mini_portile2 (~> 2.0.0.rc2)
     pg (0.18.4)
+    pry (0.10.3)
+      coderay (~> 1.1.0)
+      method_source (~> 0.8.1)
+      slop (~> 3.4)
     rack (1.6.4)
     rack-protection (1.5.3)
       rack
@@ -34,6 +40,7 @@ GEM
     sinatra-activerecord (2.0.9)
       activerecord (>= 3.2)
       sinatra (~> 1.0)
+    slop (3.6.0)
     thread_safe (0.3.5)
     tilt (2.0.1)
     tzinfo (1.2.2)
@@ -47,6 +54,7 @@ DEPENDENCIES
   activesupport
   nokogiri
   pg
+  pry
   rake
   sinatra
   sinatra-activerecord

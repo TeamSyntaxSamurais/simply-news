@@ -24,6 +24,7 @@ class AccountController < ApplicationController
   end
 
   get '/login' do
+    @title = "Login"
     erb :login
   end
 
@@ -49,7 +50,8 @@ class AccountController < ApplicationController
     erb :not_found
   end
 
-  get '/logout' do
+
+get '/logout' do
     authorization_check
     session[:current_account] = nil
     redirect '/'

@@ -1,0 +1,37 @@
+header, footer {
+  color: #ECF0F1; }
+
+.site-title {
+  background: #2C3E50; }
+
+.page-title {
+  background: #2980B9; }
+
+.site-title h1, .site-title p {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  line-height: 1em; }
+
+.page-title h2 {
+  margin-top: 10px; }
+
+.source-title {
+  background: #ECF0F1; }
+
+.article-list article {
+  border-bottom: 1px solid #ECF0F1; }
+.article-list article:last-child {
+  border-bottom: none; }
+
+footer.row {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 50px;
+  width: 100%;
+  margin: 0;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background: #2980B9; }
+
+/*# sourceMappingURL=style.css.map */

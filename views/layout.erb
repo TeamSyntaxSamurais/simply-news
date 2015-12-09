@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Simply News</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../public/css/style.css" media="screen" title="no title" charset="utf-8">
+  </head>
+  <body>
+    <div class="container-fluid">
+      <header>
+        <div class="row site-title">
+          <div class="col-xs-10 text-left">
+            <h1>Simply News</h1>
+          </div>
+          <div class="col-xs-2 text-right">
+            <h1>
+              <i class="fa fa-cog"></i>
+            </h1>
+          </div>
+        </div>
+        <div class="row page-title">
+          <div class="col-xs-12">
+            <!-- replace with dynamic title -->
+            <!-- <h2><%= @title %></h2> -->
+            <h2>News Feed</h2>
+          </div>
+        </div>
+      </header>
+      <section class="main">
+        <%= yield %>
+      </section><!-- main -->
+      <footer class="row">
+        <div class="col-xs-12 text-center">
+          <p>&copy; 2015</p>
+        </div>
+
+      </footer>
+    </div>
+  </body>
+</html>

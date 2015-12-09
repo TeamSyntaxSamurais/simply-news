@@ -1,0 +1,47 @@
+$darkblue: #2C3E50;
+$medblue: #2980B9;
+$ltblue: #3498DB;
+$off-white: #ECF0F1;
+$red: #E74C3C;
+
+header, footer {
+  color: $off-white;
+}
+.site-title {
+  background: $darkblue;
+}
+.page-title {
+  background: $medblue;
+}
+.site-title {
+  h1, p {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    line-height: 1em;
+  }
+}
+.page-title h2 {
+  margin-top: 10px;
+}
+.source-title {
+  background: $off-white;
+}
+.article-list {
+  article {
+    border-bottom: 1px solid $off-white;
+  }
+  article:last-child {
+    border-bottom: none;
+  }
+}
+footer.row {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 50px;
+  width: 100%;
+  margin: 0;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background: $medblue;
+}

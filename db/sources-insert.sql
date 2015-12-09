@@ -1,6 +1,6 @@
 \c simply_news
 
-INSERT INTO sources (name, rss_url, homepage_url, image_url ) VALUES (
+INSERT INTO sources (name, rss_url, homepage_url, image_url ) VALUES
   ('The Verge', 'http://www.theverge.com/rss/index.xml', 'http://www.theverge.com/', 'the-verge.png'),
   ('Mashable', 'http://feeds.mashable.com/Mashable', 'http://mashable.com/', 'mashable.png'),
   ('Ars Technica', 'http://feeds.arstechnica.com/arstechnica/index', 'http://arstechnica.com/', 'ars-technica.png'),
@@ -19,5 +19,6 @@ INSERT INTO sources (name, rss_url, homepage_url, image_url ) VALUES (
   ('Glamour', 'http://feeds.glamour.com/glamour/glamour_all', 'http://www.glamour.com/', 'glamour.png'),
   ('Hollywood Reporter', 'http://feeds.feedburner.com/thr/news', 'http://www.hollywoodreporter.com/', 'hollywood-reporter.png'),
   ('Yahoo Sports', 'https://sports.yahoo.com/top/rss.xml', 'http://sports.yahoo.com/', 'yahoo-sports.png'),
-  ('Hacker News', 'https://news.ycombinator.com/rss', 'https://news.ycombinator.com/', 'hacker-news.png')
-)
+  ('Hacker News', 'https://news.ycombinator.com/rss', 'https://news.ycombinator.com/', 'hacker-news.png'),
+  ('New York Times', 'http://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml', 'http://www.nytimes.com/', 'nyt.png')
+;

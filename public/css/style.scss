@@ -3,7 +3,11 @@ $medblue: #2980B9;
 $ltblue: #3498DB;
 $off-white: #ECF0F1;
 $red: #E74C3C;
+$footer-height: 40px;
 
+a:hover {
+  text-decoration: none;
+}
 header, footer {
   color: $off-white;
 }
@@ -34,11 +38,71 @@ header, footer {
     border-bottom: none;
   }
 }
+.news-sources {
+  div {
+    margin: 0;
+    position: relative;
+  }
+  .left-source {
+    padding: 0.5em 0.25em 0 0.5em;
+  }
+  .right-source {
+    padding: 0.5em 0.5em 0 0.25em;
+  }
+  img {
+    box-sizing: border-box;
+    width: 100%;
+    border: 5px solid $darkblue;
+    border-radius: 3px;
+    margin: 0;
+    padding: 0;
+  }
+  img:hover {
+    border-color: $ltblue;
+    cursor: pointer;
+  }
+  .checked-image {
+    border-color: $ltblue;
+  }
+  .checked-image:hover {
+    border-color: $darkblue;
+  }
+  input[type="checkbox"] {
+    display: none;
+  }
+  input[type="checkbox"] + label {
+    position: absolute;
+    bottom: 0.5em;
+    right: 1em;
+    width: 1.25em;
+    height: 1.25em;
+    background: white;
+    cursor: pointer;
+    border: 2px solid $darkblue;
+    border-radius: 2px;
+  }
+  div:hover input[type="checkbox"] + label {
+    border-color: $ltblue;
+  }
+  input[type=checkbox]:checked + label {
+    border-color: #AAA;
+    background: $ltblue;
+  }
+  div:hover input[type=checkbox]:checked + label {
+    border-color: $darkblue;
+  }
+}
+.submit-form {
+  margin-top: 0.75em;
+}
+.main {
+  margin-bottom: $footer-height + 10;
+}
 footer.row {
   position: fixed;
   bottom: 0;
   left: 0;
-  height: 50px;
+  height: $footer-height;
   width: 100%;
   margin: 0;
   padding-top: 10px;

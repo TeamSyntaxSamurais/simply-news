@@ -1,0 +1,23 @@
+<section class="row news-source">
+  <% if !single %>
+    <div class="col-xs-12 source-title">
+      <h3><%= source[:name] %></h3>
+    </div>
+  <% end %>
+  <div class="col-xs-12 article-list">
+    <% articles = rss_to_hash source[:rss_url], qty
+    articles.each do |article| %>
+      <article>
+        <h4><a href="<%= article["link"] %>"><%= article["title"] %></a></h4>
+        <p>
+          <%= article["description"] %>
+        </p>
+      </article>
+    <% end %>
+    <% if !single %>
+      <article>
+        <h4><a href="/source/<%= source[:id] %>">More from <%= source[:name] %></a></h4>
+      </article>
+    <% end %>
+  </div>
+</section>

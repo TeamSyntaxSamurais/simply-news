@@ -14,16 +14,47 @@ class SourceController < ApplicationController
   end
 
   get '/choose-sources' do
-    @sources = get_sources
+    @all_sources = Source.all
+    @sources = []
+    @all_sources.each do |source|
+      @sources.push(source.attributes.to_options)
+    end
+    @account_sources = account_record.sources
+    @account_sources.each do |account_source|
+      @sources.find { |source| source[:name] == account_source[:name] }[:checked] = true
+    end
+    @sources.sort_by { |source| source[:name] }
     @title = 'Choose News Sources'
     erb :choose_sources
   end
 
+  post '/save-sources' do
+    authorization_check
+    account_id = session[:current_account][:id]
+    selected = []
+    params.each do |id,on|
+      source_id = id.split('_')[1].to_i
+      if on == "on"
+        account_source = AccountSource.new
+        account_source.account_id = account_id
+        account_source.source_id = source_id
+        account_source.save
+        selected.push(source_id)
+      end
+    end
+    AccountSource.where({account_id: account_id}).each do |entry|
+      if !selected.include? entry[:source_id]
+        entry.delete
+      end
+    end
+    redirect '/'
+  end
+
   def get_sources
-    if session[:current_account].nil?
+    if session[:current_account].nil? || account_record.sources.nil?
       sources = Source.all
     else
-      sources = session[:current_account].sources
+      sources = account_record.sources
     end
     return sources.sort_by { |source| source[:name] }
   end

@@ -13,14 +13,15 @@ class AccountController < ApplicationController
   # calls method with arg of username from register form
 
     if does_account_exist(params[:email]) == true
-      return { :message => 'email does exist'}.to_json
+      session[:alert] = 'Your email address is already registered.'
+      redirect '/login'
     end
 
     account = Account.new(first_name: params[:first_name], email: params[:email], password: params[:password])
     account.save
 
     session[:current_account] = account
-    redirect '/'
+    redirect '/choose-sources'
   end
 
   get '/login' do
@@ -33,16 +34,9 @@ class AccountController < ApplicationController
       session[:current_account] = account
       redirect '/'
     else
-      @message = 'Sorry. Email or password not found. Please Try again.'
+      session[:alert] = 'Sorry, that email and password combination wasn&rsquo;t found.'
       erb :login
     end
-  end
-
-  get '/' do
-    authorization_check
-    @account = session[:current_account]
-    @sources = @account.sources
-    erb :login
   end
 
   get '/authorization_check' do
@@ -50,7 +44,6 @@ class AccountController < ApplicationController
   end
 
   get '/logout' do
-    authorization_check
     session[:current_account] = nil
     redirect '/'
   end

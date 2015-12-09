@@ -67,4 +67,8 @@ footer.row {
   padding-bottom: 10px;
   background: #2980B9; }
 
+@media (min-width: 768px) {
+  .news-sources .left-source, .news-sources .right-source {
+    padding: 0.5em 0.5em 0; } }
+
 /*# sourceMappingURL=style.css.map */

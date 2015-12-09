@@ -88,3 +88,10 @@ footer.row {
   padding-bottom: 10px;
   background: $medblue;
 }
+@media (min-width: 768px) {
+  .news-sources {
+    .left-source, .right-source {
+      padding: 0.5em 0.5em 0;
+    }
+  }
+}

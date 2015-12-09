@@ -1,8 +1,8 @@
 require 'bcrypt'
 class Account < ActiveRecord::Base
   self.table_name = 'accounts'
-
   has_many :account_sources
+  has_many :sources, through: :account_sources
 
   include BCrypt
 

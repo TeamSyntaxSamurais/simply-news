@@ -26,10 +26,8 @@ class ApplicationController < Sinatra::Base
   #is accountholder authenticated?
   def is_authenticated?
     if session[:current_account].nil? == true
-      puts 'nil'
       return false
     else
-      puts "true"
       return true
     end
   end
@@ -38,10 +36,15 @@ class ApplicationController < Sinatra::Base
     return session[:current_account]
   end
 
+  def account_record
+    authorization_check
+    return Account.find(session[:current_account].id)
+  end
+
   #is accountholder authorized?
   def authorization_check
     if is_authenticated? == false
-      redirect '/not_found'
+      redirect '/account/login'
     else
       return true
     end

@@ -8,8 +8,7 @@ class SourceController < ApplicationController
 
   get '/source/:id' do
     id = params[:id].to_i
-    @sources = get_sources
-    @source = @sources.find(id)
+    @source = Source.find(id)
     @title = @source[:name]
     erb :single_source
   end
@@ -30,7 +29,12 @@ class SourceController < ApplicationController
   end
 
   def rss_to_hash url, qty=false
-    page = Nokogiri::XML(open(url))
+    begin
+      page = Nokogiri::XML(open(url))
+    rescue Exception => e
+      puts "Couldn't read \"#{ url }\": #{ e }"
+      return
+    end
     hash = Hash.from_xml(page.to_xml)
     type = type_of_rss hash
     if type == 'rss1'

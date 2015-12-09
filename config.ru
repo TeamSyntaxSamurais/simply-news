@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require 'open-uri'
 
 require ('./controllers/application')
 require ('./controllers/source')

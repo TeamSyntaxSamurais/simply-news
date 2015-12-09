@@ -1,5 +1,9 @@
 class AccountController < ApplicationController
 
+  get '/' do
+    return 'whoops'
+  end
+
   get '/register' do
     erb :register
   end

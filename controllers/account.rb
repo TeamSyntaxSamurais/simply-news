@@ -65,9 +65,9 @@ class AccountController < ApplicationController
       @account.password = params[:password]
     end
     @account.save
-    # return view
+    session[:current_account] = @account
     session[:alert] = 'Account updated.'
-    erb :message
+    redirect '/account/update'
  end
 
 end # End of AccountController

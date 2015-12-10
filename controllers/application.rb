@@ -51,7 +51,8 @@ class ApplicationController < Sinatra::Base
   end
 
   not_found do
-      erb :not_found
+    @title = 'Now You&rsquo;ve Done It'
+    erb :not_found
   end
 
 end # end of ApplicationController

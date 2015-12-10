@@ -91,6 +91,9 @@ header, footer {
 .main {
   margin-bottom: 50px; }
 
+.hypnotized {
+  width: 100%; }
+
 footer.row {
   position: fixed;
   bottom: 0;

@@ -1,19 +1,14 @@
 class AccountController < ApplicationController
 
-  get '/' do
-    return 'here we are'
-  end
-
   get '/register' do
     @title = "Register"
     erb :register
   end
 
   post '/register' do
-    p params
-  # calls method with arg of username from register form
+    # calls method with arg of username from register form
 
-    if does_account_exist(params[:email]) == true
+    if does_account_exist(params[:email])
       session[:alert] = 'Your email address is already registered.'
       redirect '/login'
     end
@@ -31,13 +26,18 @@ class AccountController < ApplicationController
   end
 
   post '/login' do
-    account = Account.authenticate(params[:email], params[:password])
-    if account
-      session[:current_account] = account
-      redirect '/'
+    if does_account_exist(params[:email])
+      account = Account.authenticate(params[:email], params[:password])
+      if account
+        session[:current_account] = account
+        redirect '/'
+      else
+        session[:alert] = 'Sorry, that email and password combination wasn&rsquo;t found.'
+        redirect '/account/login'
+      end
     else
-      session[:alert] = 'Sorry, that email and password combination wasn&rsquo;t found.'
-      erb :login
+      session[:alert] = 'No account was found for that email address.'
+      redirect '/account/login'
     end
   end
 
@@ -53,7 +53,6 @@ class AccountController < ApplicationController
   end
 
   post '/update' do
-      p params
       @account = session[:current_account]
       @account.first_name = params[:first_name]
       @account.email = params[:email]

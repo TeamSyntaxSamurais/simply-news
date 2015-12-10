@@ -17,6 +17,7 @@ class AccountController < ApplicationController
     account.save
 
     session[:current_account] = account
+    session[:alert] = 'Your account&rsquo;s been created.'
     redirect '/choose-sources'
   end
 
@@ -30,6 +31,7 @@ class AccountController < ApplicationController
       account = Account.authenticate(params[:email], params[:password])
       if account
         session[:current_account] = account
+        session[:alert] = 'Login successful.'
         redirect '/'
       else
         session[:alert] = 'Sorry, that email and password combination wasn&rsquo;t found.'
@@ -55,6 +57,7 @@ class AccountController < ApplicationController
 
   get '/logout' do
     session[:current_account] = nil
+    session[:alert] = 'Logout successful.'
     redirect '/'
   end
 

@@ -25,6 +25,17 @@
   </div>
 <% session[:viewed_overlay] = true ## hide overlay for this session
 end %>
+<% if session[:alert] %>
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="alert alert-success alert-dismissible alert-top" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <%= session[:alert] %>
+      </div>
+    </div>
+  </div>
+  <% session[:alert] = nil
+end %>
 <% @sources.each do |source| %>
   <%= erb :partial_article_list, :locals => { :source => source, :qty => 2, :single => false } %>
 <% end %>

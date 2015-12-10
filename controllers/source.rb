@@ -50,6 +50,7 @@ class SourceController < ApplicationController
         entry.delete
       end
     end
+    session[:alert] = 'News sources updated.'
     redirect '/'
   end
 

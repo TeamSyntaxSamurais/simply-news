@@ -1,3 +1,15 @@
+<% if session[:alert] %>
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="alert alert-success alert-dismissible alert-top" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <%= session[:alert] %>
+      </div>
+    </div>
+  </div>
+  <% session[:alert] = nil
+end %>
+
 <blockquote>
   <p>Change is the law of life. And those who look only to the past or present are certain to miss the future.</p>
   <footer>John F. Kennedy</footer>

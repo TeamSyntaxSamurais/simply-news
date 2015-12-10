@@ -53,6 +53,9 @@ header, footer {
   font-size: 1.5em;
   color: #FFF; }
 
+.alert.alert-top {
+  margin-top: 1em; }
+
 .source-title {
   background: #ECF0F1; }
 

@@ -11,6 +11,25 @@ a:hover {
 header, footer {
   color: $off-white;
 }
+.navbar.header-nav {
+  margin-bottom: 0;
+  background: $darkblue;
+  color: $off-white;
+  border-radius: 0;
+  .navbar-toggle .icon-bar {
+    background-color: $off-white;
+  }
+}
+.navbar-brand, .navbar-nav>li>a {
+  text-shadow: none;
+}
+.navbar-brand:hover, .navbar-nav>li>a:hover {
+  background: $darkblue;
+  color: #CCC;
+}
+.navbar a {
+  color: $off-white;
+}
 .site-title {
   background: $darkblue;
 }

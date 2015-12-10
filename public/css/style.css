@@ -4,6 +4,24 @@ a:hover {
 header, footer {
   color: #ECF0F1; }
 
+.navbar.header-nav {
+  margin-bottom: 0;
+  background: #2C3E50;
+  color: #ECF0F1;
+  border-radius: 0; }
+  .navbar.header-nav .navbar-toggle .icon-bar {
+    background-color: #ECF0F1; }
+
+.navbar-brand, .navbar-nav > li > a {
+  text-shadow: none; }
+
+.navbar-brand:hover, .navbar-nav > li > a:hover {
+  background: #2C3E50;
+  color: #CCC; }
+
+.navbar a {
+  color: #ECF0F1; }
+
 .site-title {
   background: #2C3E50; }
 

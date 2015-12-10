@@ -47,11 +47,6 @@ class ApplicationController < Sinatra::Base
     end
   end
 
-  get '/' do
-    @account = account
-    erb :feed
-  end
-
   not_found do
       erb :not_found
   end

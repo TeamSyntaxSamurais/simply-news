@@ -1,10 +1,11 @@
 class AccountController < ApplicationController
 
   get '/' do
-    return 'whoops'
+    return 'here we are'
   end
 
   get '/register' do
+    @title = "Register"
     erb :register
   end
 
@@ -41,7 +42,7 @@ class AccountController < ApplicationController
 
   get '/' do
     authorization_check
-    @account = session[:current_account]
+    @account = session[:current_account].account
     @sources = @account.sources
     erb :login
   end
@@ -51,10 +52,28 @@ class AccountController < ApplicationController
   end
 
 
-get '/logout' do
+  get '/logout' do
     authorization_check
     session[:current_account] = nil
     redirect '/'
   end
+
+  get '/update' do
+    authorization_check
+    @account = session[:current_account]
+    erb :update
+  end
+
+  post '/update' do
+      p params
+      @account = session[:current_account]
+      @account.first_name = params[:first_name]
+      @account.email = params[:email]
+      @account.password = params[:password]
+      @account.save
+      # return view
+      @message = "Account updated"
+      erb :message
+   end
 
 end # End of AccountController

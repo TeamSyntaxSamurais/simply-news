@@ -49,18 +49,25 @@ class AccountController < ApplicationController
   get '/update' do
     authorization_check
     @account = session[:current_account]
+    @title = 'Update Account Info'
     erb :update
   end
 
   post '/update' do
-      @account = session[:current_account]
+    @account = Account.find(params[:id])
+    if params[:first_name] && params[:first_name] != ''
       @account.first_name = params[:first_name]
+    end
+    if params[:email] && params[:email] != ''
       @account.email = params[:email]
+    end
+    if params[:password] && params[:password] != ''
       @account.password = params[:password]
-      @account.save
-      # return view
-      @message = "Account updated"
-      erb :message
-   end
+    end
+    @account.save
+    # return view
+    session[:alert] = 'Account updated.'
+    erb :message
+ end
 
 end # End of AccountController

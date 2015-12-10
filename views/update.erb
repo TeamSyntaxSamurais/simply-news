@@ -1,31 +1,22 @@
-<h3>Update Account</h3>
-<p>
-  Account name is: <%= session[:current_account][:first_name] %>
-<em>Update: <%= @account %>.</em>
-</p>
-<form action="/account/update" method="post">
+<h4 class="text-center">Tired of that Compuserve email address? Update your account info.</h4>
+<div class="row">
+  <div class="col-xs-12">
+    <form action="/account/update" method="post">
+      <input type="hidden" name="id" value="<%= @account.id %>">
+      <div class="form-group">
+        <label for="first_name">First Name</label>
+        <input type="text" name="first_name" value="<%= @account.first_name %>" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" name="email" value="<%= @account.email %>" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="password">Password (leave blank to keep current password)</label>
+        <input type="password" name="password" class="form-control">
+      </div>
+        <button type="submit" class="btn btn-warning form-control">Update</button>
 
-  <input type="hidden" name="id" value="<%= @account.id %>">
-  <input type="text" name="first_name" value="<%= @account.first_name %>">
-  <input type="email" name="email" value="<%= @account.email %>">
-
-  <input type="password" name="password" value="<%= @account.password %>">
-  <input type="submit">Update</input>
-  <button type="submit" class="btn btn-primary">Update</button>
-    <button type="submit" class="btn btn-success">Update</button>
-      <button type="submit" class="btn btn-info">Update</button>
-        <button type="submit" class="btn btn-warning">Update</button>
-              <button type="submit" class="btn btn-danger">Update</button>
-</form>
-
-<!--
-<form>
-  <div class="form-group">
-    <label for="exampleInputEmail1">New Email</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="New Email">
+    </form>
   </div>
-  <div class="form-group">
-    <label for="exampleInputPassword1">New Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="New Password">
-  </div>
-</form>
+</div>

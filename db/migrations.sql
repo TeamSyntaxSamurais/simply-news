@@ -6,10 +6,6 @@ CREATE TABLE accounts (id SERIAL PRIMARY KEY, first_name VARCHAR(255), email VAR
 
 CREATE TABLE sources (id SERIAL PRIMARY KEY, name VARCHAR(255), rss_url VARCHAR(255), homepage_url VARCHAR(255), image_url VARCHAR(255));
 
-CREATE TABLE account_sources (id SERIAL PRIMARY KEY, fk_account_id INT REFERENCES accounts(id), fk_source_id INT REFERENCES sources(id));
-
-ALTER TABLE account_sources RENAME COLUMN fk_source_id to source_id;
-ALTER TABLE account_sources RENAME COLUMN fk_account_id to account_id;
-
+CREATE TABLE account_sources (id SERIAL PRIMARY KEY, account_id INT REFERENCES accounts(id), source_id INT REFERENCES sources(id));
 
 \dt

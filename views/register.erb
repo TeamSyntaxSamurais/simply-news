@@ -1,10 +1,11 @@
 <% if @message %>
-
-<li><%= @messgae %></li>
+  <li><%= @messgae %></li>
 <% end %>
-
-<!--REGISTER-->
-
+<div class="row form-wrapper">
+  <div class="col-xs-12">
+    <h4 class="text-center">Create an Account to Customize Your News Feed</h4>
+  </div>
+</div>
 <form action="/account/register" method="post">
   <div class="form-group">
     <input type="text" class="form-control" name="first_name" placeholder="First Name">
@@ -15,10 +16,5 @@
   <div class="form-group">
     <input type="password" class="form-control" name="password" placeholder="Password">
   </div>
-  <button type="submit" class="btn btn-default form-control">Submit</button>
-  <button type="submit" class="btn btn-primary">Submit</button>
-    <button type="submit" class="btn btn-success">Submit</button>
-      <button type="submit" class="btn btn-info">Submit</button>
-        <button type="submit" class="btn btn-warning">Submit</button>
-              <button type="submit" class="btn btn-danger">Submit</button>
+  <button type="submit" class="btn btn-warning form-control">Register</button>
 </form>

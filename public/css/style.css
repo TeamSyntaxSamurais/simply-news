@@ -1,6 +1,10 @@
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
   font-weight: 400; }
 
+h4 {
+  margin-top: 0;
+  margin-bottom: 0.5em; }
+
 h3 {
   margin-top: 0.5em;
   margin-bottom: 0.5em;
@@ -77,6 +81,9 @@ header, footer {
   border-color: #3498DB; }
 .news-sources input[type="checkbox"] {
   display: none; }
+
+.form-wrapper {
+  margin-top: 1.5em; }
 
 .submit-form {
   margin-top: 0.75em; }

@@ -94,6 +94,9 @@ header, footer {
 .main {
   margin-bottom: 50px; }
 
+.row-buffer {
+  margin-top: 2em; }
+
 .hypnotized {
   width: 100%; }
 

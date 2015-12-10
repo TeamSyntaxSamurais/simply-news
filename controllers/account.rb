@@ -10,7 +10,7 @@ class AccountController < ApplicationController
 
     if does_account_exist(params[:email])
       session[:alert] = 'Your email address is already registered.'
-      redirect '/login'
+      redirect '/account/login'
     end
 
     account = Account.new(first_name: params[:first_name], email: params[:email], password: params[:password])
@@ -48,12 +48,6 @@ class AccountController < ApplicationController
     @account = session[:current_account]
     erb :about
   end
-
-  post '/about' do
-    redirect '/about'
-
-  end
-
 
   get '/logout' do
     session[:current_account] = nil

@@ -5,8 +5,19 @@ $off-white: #ECF0F1;
 $red: #E74C3C;
 $footer-height: 40px;
 
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+  font-weight: 400;
+}
+h3 {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  font-size: 1.5em;
+}
 a:hover {
   text-decoration: none;
+}
+.content-container {
+  margin-top: 50px;
 }
 header, footer {
   color: $off-white;
@@ -19,13 +30,16 @@ header, footer {
   .navbar-toggle .icon-bar {
     background-color: $off-white;
   }
-}
-.navbar-brand, .navbar-nav>li>a {
-  text-shadow: none;
-}
-.navbar-brand:hover, .navbar-nav>li>a:hover {
-  background: $darkblue;
-  color: #CCC;
+  .navbar-brand, .navbar-nav>li>a {
+    text-shadow: none;
+  }
+  .navbar-brand {
+    font-size: 2em;
+  }
+  .navbar-brand:hover, .navbar-nav>li>a:hover {
+    background: $darkblue;
+    color: #CCC;
+  }
 }
 .navbar a {
   color: $off-white;
@@ -45,6 +59,7 @@ header, footer {
 }
 .page-title h2 {
   margin-top: 10px;
+  font-size: 1.5em;
 }
 .source-title {
   background: $off-white;
@@ -77,14 +92,10 @@ header, footer {
     padding: 0;
   }
   img:hover {
-    border-color: $ltblue;
     cursor: pointer;
   }
   .checked-image {
     border-color: $ltblue;
-  }
-  .checked-image:hover {
-    border-color: $darkblue;
   }
   input[type="checkbox"] {
     display: none;

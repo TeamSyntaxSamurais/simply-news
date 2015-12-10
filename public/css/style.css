@@ -1,5 +1,16 @@
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+  font-weight: 400; }
+
+h3 {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  font-size: 1.5em; }
+
 a:hover {
   text-decoration: none; }
+
+.content-container {
+  margin-top: 50px; }
 
 header, footer {
   color: #ECF0F1; }
@@ -11,13 +22,13 @@ header, footer {
   border-radius: 0; }
   .navbar.header-nav .navbar-toggle .icon-bar {
     background-color: #ECF0F1; }
-
-.navbar-brand, .navbar-nav > li > a {
-  text-shadow: none; }
-
-.navbar-brand:hover, .navbar-nav > li > a:hover {
-  background: #2C3E50;
-  color: #CCC; }
+  .navbar.header-nav .navbar-brand, .navbar.header-nav .navbar-nav > li > a {
+    text-shadow: none; }
+  .navbar.header-nav .navbar-brand {
+    font-size: 2em; }
+  .navbar.header-nav .navbar-brand:hover, .navbar.header-nav .navbar-nav > li > a:hover {
+    background: #2C3E50;
+    color: #CCC; }
 
 .navbar a {
   color: #ECF0F1; }
@@ -34,7 +45,8 @@ header, footer {
   line-height: 1em; }
 
 .page-title h2 {
-  margin-top: 10px; }
+  margin-top: 10px;
+  font-size: 1.5em; }
 
 .source-title {
   background: #ECF0F1; }
@@ -59,12 +71,9 @@ header, footer {
   margin: 0;
   padding: 0; }
 .news-sources img:hover {
-  border-color: #3498DB;
   cursor: pointer; }
 .news-sources .checked-image {
   border-color: #3498DB; }
-.news-sources .checked-image:hover {
-  border-color: #2C3E50; }
 .news-sources input[type="checkbox"] {
   display: none; }
 

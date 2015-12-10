@@ -2,6 +2,7 @@ class SourceController < ApplicationController
 
   get '/' do
     @title = 'News Feed'
+    @account = account
     @sources = get_sources
     erb :feed
   end
@@ -9,6 +10,7 @@ class SourceController < ApplicationController
   get '/source/:id' do
     id = params[:id].to_i
     @source = Source.find(id)
+    @account = account
     @title = @source[:name]
     erb :single_source
   end
@@ -25,6 +27,7 @@ class SourceController < ApplicationController
     end
     @sources.sort_by { |source| source[:name] }
     @title = 'Choose News Sources'
+    @account = account
     erb :choose_sources
   end
 

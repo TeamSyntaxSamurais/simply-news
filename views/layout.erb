@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="/css/style.css" media="screen" title="no title" charset="utf-8">
   </head>
   <body>
-    <nav class="navbar header-nav">
+    <nav class="navbar header-nav navbar-fixed-top">
       <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -27,23 +27,23 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="main-navigation">
           <ul class="nav navbar-nav">
-            <% if session[:current_user] %>
-              <li><a href="/choose-sources">News Sources</a></li>
-            <% end %>
-            <li><a href="/about">About</a></li>
+
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <% if session[:current_user] %>
-              <li><a href="/account/update"><%= session[:current_user][:first_name] %></a></li>
+            <li><a href="/about">About</a></li>
+            <% if @account %>
+              <li><a href="/choose-sources">News Sources</a></li>
+              <li><a href="/account/update"><%= @account[:first_name] %></a></li>
               <li><a href="/account/logout">Logout</a></li>
             <% else %>
-              <li><a href="/account/register">Register to customize your feed</a></li>
+              <li><a href="/account/register">Customize Your Feed</a></li>
+              <li><a href="/account/login">Login</a></li>
             <% end %>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
-    <div class="container-fluid">
+    <div class="container-fluid content-container">
       <header>
         <% if @title %>
           <div class="row page-title">

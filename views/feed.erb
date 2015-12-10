@@ -1,3 +1,30 @@
+<% if !session[:viewed_overlay] && !@account  ## display overlay on first visit %>
+  <div class="overlay-outer" id="overlay-outer">
+    <div class="overlay-inner">
+      <i class="fa fa-times-circle close-overlay"></i>
+      <div class="overlay">
+        <div class="row">
+          <div class="col-xs-12 text-center">
+            <h2>Simply News</h2>
+            <div class="form-group">
+              <label for="register">Create your custom feed.</label>
+              <a href="/account/register"><button type="button" name="register" class="btn btn-primary form-control">Registration</button></a>
+            </div>
+            <div class="form-group">
+              <label for="login">Log in to view your feed.</label>
+              <a href="/account/login"><button type="button" name="login" class="btn btn-warning form-control">Login</button></a>
+            </div>
+            <div class="form-group">
+              <label for="feed">View the default news feed.</label>
+              <button type="button" name="feed" class="btn btn-default form-control close-overlay" id="close-overlay">Default Feed</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% session[:viewed_overlay] = true ## hide overlay for this session
+end %>
 <% @sources.each do |source| %>
   <%= erb :partial_article_list, :locals => { :source => source, :qty => 2, :single => false } %>
 <% end %>

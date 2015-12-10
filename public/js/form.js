@@ -11,4 +11,7 @@ $('document').ready( function() {
       $(this).removeClass('checked-image');
     }
   });
+  $('.close-overlay').click( function() {
+    $('#overlay-outer').hide();
+  });
 });

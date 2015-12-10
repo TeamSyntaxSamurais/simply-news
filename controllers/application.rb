@@ -5,7 +5,9 @@ class ApplicationController < Sinatra::Base
 
   ActiveRecord::Base.establish_connection(
       :database => 'simply_news',
-      :adapter => 'mysql2'
+      :adapter => 'mysql2',
+      :username => "root",
+      :password => "password"
   )
 
   set :views, File.expand_path('../../views', __FILE__)

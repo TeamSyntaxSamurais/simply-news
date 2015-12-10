@@ -46,7 +46,8 @@ header, footer {
 
 .page-title h2 {
   margin-top: 10px;
-  font-size: 1.5em; }
+  font-size: 1.5em;
+  color: #FFF; }
 
 .source-title {
   background: #ECF0F1; }

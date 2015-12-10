@@ -41,6 +41,18 @@ class AccountController < ApplicationController
     end
   end
 
+  get '/about' do
+    @title = "About"
+    @account = session[:current_account]
+    erb :about
+  end
+
+  post '/about' do
+    redirect '/about'
+
+  end
+
+
   get '/logout' do
     session[:current_account] = nil
     redirect '/'

@@ -8,4 +8,8 @@ CREATE TABLE sources (id SERIAL PRIMARY KEY, name VARCHAR(255), rss_url VARCHAR(
 
 CREATE TABLE account_sources (id SERIAL PRIMARY KEY, fk_account_id INT REFERENCES accounts(id), fk_source_id INT REFERENCES sources(id));
 
+ALTER TABLE account_sources RENAME COLUMN fk_source_id to source_id;
+ALTER TABLE account_sources RENAME COLUMN fk_account_id to account_id;
+
+
 \dt

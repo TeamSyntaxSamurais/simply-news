@@ -25,7 +25,7 @@ class SourceController < ApplicationController
     @account_sources.each do |account_source|
       @sources.find { |source| source[:name] == account_source[:name] }[:checked] = true
     end
-    @sources.sort_by { |source| source[:name] }
+    @sources = @sources.sort_by { |source| source[:name] }
     @title = 'Choose News Sources'
     @account = account
     erb :choose_sources

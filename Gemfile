@@ -12,3 +12,11 @@ gem 'nokogiri'
 gem 'json'
 gem 'bcrypt'
 gem 'dotenv'
+
+group :mysql do
+  gem 'mysql2'
+end
+
+group :postgres do
+  gem 'pg'
+end

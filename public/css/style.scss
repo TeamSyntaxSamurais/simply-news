@@ -117,6 +117,9 @@ header, footer {
 }
 .main {
   margin-bottom: $footer-height + 10;
+  .lead:first-child {
+    margin-top: 1em;
+  }
 }
 .row-buffer {
   margin-top: 2em;

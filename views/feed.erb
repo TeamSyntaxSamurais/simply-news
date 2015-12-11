@@ -29,6 +29,7 @@ end %>
   <%= erb :partial_alert, :locals => { :alert => session[:alert], :type => 'success' } %>
   <% session[:alert] = nil
 end %>
-<% @sources.each do |source| %>
-  <%= erb :partial_article_list, :locals => { :source => source, :qty => 2, :single => false } %>
-<% end %>
+<script src="/js/feed.js"></script>
+<div id="feed-container">
+
+</div>

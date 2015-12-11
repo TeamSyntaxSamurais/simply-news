@@ -93,6 +93,8 @@ header, footer {
 
 .main {
   margin-bottom: 50px; }
+  .main .lead:first-child {
+    margin-top: 1em; }
 
 .row-buffer {
   margin-top: 2em; }

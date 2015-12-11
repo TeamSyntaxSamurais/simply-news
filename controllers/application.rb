@@ -3,9 +3,11 @@ class ApplicationController < Sinatra::Base
   require 'bundler'
   Bundler.require
 
+  Dotenv.load
+
   ActiveRecord::Base.establish_connection(
-      :database => 'simply_news',
-      :adapter => 'postgresql'
+      :database => ENV['DB_NAME'],
+      :adapter => ENV['DB_ADAPTER']
   )
 
   set :views, File.expand_path('../../views', __FILE__)

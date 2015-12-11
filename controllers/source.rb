@@ -74,11 +74,6 @@ class SourceController < ApplicationController
     type = type_of_rss hash
     if type == 'rss1'
       items = hash["rss"]["channel"]["item"]
-      items.each do |item|
-        unless item["descripion"].nil?
-          item["description"] = item["description"].split('<br')[0]
-        end
-      end
     elsif type == 'rss2'
       items = hash["feed"]["entry"]
       items.each do |item|
@@ -86,8 +81,9 @@ class SourceController < ApplicationController
       end
     end
     items.each do |item|
-      parse_link item
-      parse_description item
+      parse_link item ## normalize link format
+      parse_description item ## normalize description format
+      clean_description item ## remove unwanted elements
     end
     if qty
       return items[0..qty]
@@ -118,6 +114,16 @@ class SourceController < ApplicationController
     if item["description"].is_a? Array
       item["description"] = item["description"][0]
     end
+  end
+
+  def clean_description item
+    desc = item["description"]
+    desc.gsub!(/<div.*?\/div>/,'') ## remove divs
+    desc.gsub!(/<a.*?\/a>/, '') ## remove links
+    desc.gsub!(/<iframe.*?\/iframe>/, '') ## remove iframes
+    desc.gsub!(/<img.*?>/,'') ## remove images
+    desc.gsub!('<br/>', '') ## remove line breaks
+    desc.gsub!('<br>', '')
   end
 
 end

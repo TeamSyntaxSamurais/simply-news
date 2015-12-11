@@ -1,10 +1,22 @@
 class SourceController < ApplicationController
 
+  require 'cgi'
+
   get '/' do
+    t1 = Time.now
     @title = 'News Feed'
     @account = account
-    @sources = get_sources
     erb :feed
+  end
+
+  get '/deliver_feed' do
+    return get_sources.to_json
+  end
+
+  get '/deliver_articles' do
+    url = Nokogiri::HTML.parse( params[:rss_url] )
+    articles = rss_to_hash url, params[:qty].to_i
+    return articles.to_json
   end
 
   get '/source/:id' do
@@ -16,6 +28,7 @@ class SourceController < ApplicationController
   end
 
   get '/choose-sources' do
+    @sources = Source.all
     @all_sources = Source.all
     @sources = []
     @all_sources.each do |source|

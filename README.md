@@ -5,17 +5,20 @@ Instead of checking the 50 websites you follow, now, with the help of the Simply
 
 This news aggregation application compiles news feeds from online sources using Sinatra, Nokogiri and SQL. We offer multi-platform support for use on Windows, Mac OS X, Linux 32,64bit, iOS and Android.
 
-## Dependencies
-* Sinatra              
-* Nokogiri
-* SQL
-* JQuery
-* Bootstrap
+## Dependencies  
+* [Sinatra](https://rubygems.org/gems/sinatra/versions/1.4.6)         
+* [Nokogiri](https://github.com/sparklemotion/nokogiri)
+* [SQL](http://www.oracle.com/technetwork/developer-tools/sql-developer/downloads/index.html)
+* [JQuery](https://jquery.com)
+* [Bootstrap](https://getbootsrap.com)
+
 ## Installation Instructions
-<ol>
-  <li>gem install sinatra</li>
-  <li>second item</li>
-  <li>third item</li>
+<ol><![alt text](http://i.imgur.com/FhyJsiF.png "Logo Title Text 1")
+
+<li> In order to install on your local machine, git the files by forking the repository and perform git clone to your local system.
+<li>Set up your Database in SQL such as (Postgres, mySQL).
+<li>In the main root folder, run the BUNDLE terminal command to install the required gems for this application</li>
+  <li> Now run BUNDLE EXEC RACKUP and check LOCAL:9292 in your browser. </li>
 </ol>
 
 ## Maintainers

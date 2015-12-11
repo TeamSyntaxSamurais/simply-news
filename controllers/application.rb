@@ -6,8 +6,8 @@ class ApplicationController < Sinatra::Base
   Dotenv.load
 
   ActiveRecord::Base.establish_connection(
-      :database => ENV['DB_NAME'],
-      :adapter => ENV['DB_ADAPTER']
+    :database => ENV['DB_NAME'],
+    :adapter => ENV['DB_ADAPTER']
   )
 
   set :views, File.expand_path('../../views', __FILE__)

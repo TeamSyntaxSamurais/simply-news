@@ -1,4 +1,4 @@
-\c simply_news
+use simply_news;
 
 INSERT INTO sources (name, rss_url, homepage_url, image_url ) VALUES
   ('The Verge', 'http://www.theverge.com/rss/index.xml', 'http://www.theverge.com/', 'the-verge.png'),

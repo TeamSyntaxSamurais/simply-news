@@ -66,6 +66,9 @@ header, footer {
   font-size: 1.5em;
   color: #FFF;
 }
+.alert.alert-top {
+  margin-top: 1em;
+}
 .source-title {
   background: $off-white;
 }
@@ -115,6 +118,9 @@ header, footer {
 .main {
   margin-bottom: $footer-height + 10;
 }
+.row-buffer {
+  margin-top: 2em;
+}
 .hypnotized {
   width: 100%;
 }
@@ -128,6 +134,37 @@ footer.row {
   padding-top: 10px;
   padding-bottom: 10px;
   background: $medblue;
+}
+.overlay-outer {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 98;
+}
+.overlay-inner {
+  width: 300px;
+  height: 306px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -150px;
+  margin-top: -153px;
+  background: white;
+  padding: 0 20px;
+  border-radius: 5px;
+  .fa-times-circle {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 30px;
+    margin-top: -15px;
+    margin-right: -10px;
+    color: black;
+    cursor: pointer;
+  }
 }
 @media (min-width: 768px) {
   .news-sources {

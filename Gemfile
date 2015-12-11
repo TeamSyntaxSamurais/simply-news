@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'sinatra'
-gem 'pg'
+gem 'mysql2'
 gem 'pry'
 gem 'sinatra-activerecord'
 gem 'activesupport'

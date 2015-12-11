@@ -1,6 +1,7 @@
-<% if @message %>
-  <li><%= @messgae %></li>
-<% end %>
+<% if session[:alert] %>
+  <%= erb :partial_alert, :locals => { :alert => session[:alert], :type => 'danger' } %>
+  <% session[:alert] = nil
+end %>
 <div class="row form-wrapper">
   <div class="col-xs-12">
     <h4 class="text-center">Log In To View Your Custom Feed</h4>
@@ -17,5 +18,11 @@
       </div>
       <button type="submit" class="btn btn-warning form-control">Log In</button>
     </form>
+  </div>
+</div>
+<div class="row row-buffer">
+  <div class="col-xs-12">
+    <h4>Don't have an account?</h4>
+    <a href="/account/register"><button type="submit" class="btn btn-primary">Register</button></a>
   </div>
 </div>

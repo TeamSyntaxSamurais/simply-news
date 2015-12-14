@@ -61,8 +61,6 @@ header, footer {
 
 .article-list article {
   border-bottom: 1px solid #ECF0F1; }
-.article-list article:last-child {
-  border-bottom: none; }
 
 .news-sources div {
   margin: 0;

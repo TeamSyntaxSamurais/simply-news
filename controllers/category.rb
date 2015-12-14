@@ -8,8 +8,13 @@ class CategoryController < ApplicationController
 
   get '/category-sources/:id' do
     @category = Category.find(params[:id].to_i)
-    @sources = @category.sources.sort_by { |source| source[:name] }
-    return @sources.to_json
+    @sources = @category.sources
+    unless @sources.nil?
+      @sources = @sources.sort_by { |source| source[:name] }
+      return @sources.to_json
+    else
+      return false
+    end
   end
 
   get '/sources' do

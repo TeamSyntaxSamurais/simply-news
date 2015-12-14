@@ -98,6 +98,7 @@ header, footer {
     border-radius: 3px;
     margin: 0;
     padding: 0;
+    position: relative;
   }
   img:hover {
     cursor: pointer;
@@ -107,6 +108,16 @@ header, footer {
   }
   input[type="checkbox"] {
     display: none;
+  }
+  i {
+    position: absolute;
+    bottom: 0.5em;
+    right: 0.75em;
+    font-size: 1.5em;
+    color: #777;
+  }
+  i.fa-check-circle-o {
+    color: $ltblue;
   }
 }
 .form-wrapper {

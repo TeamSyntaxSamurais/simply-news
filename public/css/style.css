@@ -77,13 +77,22 @@ header, footer {
   border: 5px solid #2C3E50;
   border-radius: 3px;
   margin: 0;
-  padding: 0; }
+  padding: 0;
+  position: relative; }
 .news-sources img:hover {
   cursor: pointer; }
 .news-sources .checked-image {
   border-color: #3498DB; }
 .news-sources input[type="checkbox"] {
   display: none; }
+.news-sources i {
+  position: absolute;
+  bottom: 0.5em;
+  right: 0.75em;
+  font-size: 1.5em;
+  color: #777; }
+.news-sources i.fa-check-circle-o {
+  color: #3498DB; }
 
 .form-wrapper {
   margin-top: 1.5em; }

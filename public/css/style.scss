@@ -77,17 +77,9 @@ header, footer {
     border-bottom: 1px solid $off-white;
   }
 }
-.news-sources {
-  div {
-    margin: 0;
-    position: relative;
-  }
-  .left-source {
-    padding: 0.5em 0.25em 0 0.5em;
-  }
-  .right-source {
-    padding: 0.5em 0.5em 0 0.25em;
-  }
+.news-source {
+  margin: 0;
+  position: relative;
   img {
     box-sizing: border-box;
     width: 100%;
@@ -117,6 +109,12 @@ header, footer {
     color: $ltblue;
   }
 }
+// .news-source.left-source {
+//   padding: 0.5em 0.25em 0 0.5em;
+// }
+// .news-source.right-source {
+//   padding: 0.5em 0.5em 0 0.25em;
+// }
 .form-wrapper {
   margin-top: 1.5em;
 }

@@ -28,7 +28,6 @@ class SourceController < ApplicationController
   end
 
   get '/choose-sources' do
-    @sources = Source.all
     @all_sources = Source.all
     @sources = []
     @all_sources.each do |source|

@@ -38,6 +38,6 @@ INSERT INTO sources (name, rss_url, homepage_url, image_url ) VALUES
   ('Men''s Journal', 'http://www.mensjournal.com/services/rss/latest', 'http://www.mensjournal.com/', 'mens-journal.png'),
   ('Fox Sports', 'http://api.foxsports.com/v1/rss?partnerKey=zBaFxRyGKCfxBagJG9b8pqLyndmvo7UU', 'http://www.foxsports.com/', 'fox-sports.jpg'),
   ('Sports Illustrated', 'http://www.si.com/rss/si_topstories.rss', 'http://www.si.com/', 'sports-illustrated.png'),
-  ('Cosmpolitan', 'http://www.cosmopolitan.com/rss/all.xml', 'http://www.cosmopolitan.com/', 'cosmpolitan.png'),
+  ('Cosmpolitan', 'http://www.cosmopolitan.com/rss/all.xml', 'http://www.cosmopolitan.com/', 'cosmopolitan.png'),
   ('Vogue', 'https://www.vogue.com/feed/', 'http://www.vogue.com/', 'vogue.png')
 ;

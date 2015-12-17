@@ -22,3 +22,22 @@ INSERT INTO sources (name, rss_url, homepage_url, image_url ) VALUES
   ('Hacker News', 'https://news.ycombinator.com/rss', 'https://news.ycombinator.com/', 'hacker-news.png'),
   ('New York Times', 'http://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml', 'http://www.nytimes.com/', 'nyt.png')
 ;
+# sources phase 2
+INSERT INTO sources (name, rss_url, homepage_url, image_url ) VALUES
+  ('Entertainment Tonight', 'http://feeds.feedburner.com/EtsBreakingNews', 'http://www.etonline.com/news/', 'etonline.png'),
+  ('Us Weekly', 'http://www.usmagazine.com/entertainment/atom', 'http://www.usmagazine.com/entertainment/news', 'us-weekly.png'),
+  ('TMZ', 'http://www.tmz.com/rss.xml', 'http://www.tmz.com/', 'tmz.png'),
+  ('CNBC', 'http://www.cnbc.com/id/100003114/device/rss/rss.html', 'http://www.cnbc.com/', 'cnbc.png'),
+  ('The Economist', 'http://www.economist.com/sections/business-finance/rss.xml', 'http://www.economist.com/', 'the-economist.png'),
+  ('Fox News', 'http://feeds.foxnews.com/foxnews/latest', 'http://www.foxnews.com/', 'fox-news.jpg'),
+  ('Paris Review', 'http://feeds.feedburner.com/TheParisReviewBlog', 'http://www.theparisreview.org/', 'paris-review.png'),
+  ('The Atlantic', 'http://feeds.feedburner.com/TheAtlantic', 'http://www.theatlantic.com/', 'the-atlantic.png'),
+  ('GQ', 'http://www.gq.com/rss', 'http://www.gq.com/', 'gq.png'),
+  ('Esquire', 'http://www.esquire.com/rss/all.xml', 'http://www.esquire.com/', 'esquire.png'),
+  ('Ask Men', 'http://www.askmen.com/homepage.xml', 'http://www.askmen.com/', 'ask-men.png'),
+  ('Men''s Journal', 'http://www.mensjournal.com/services/rss/latest', 'http://www.mensjournal.com/', 'mens-journal.png'),
+  ('Fox Sports', 'http://api.foxsports.com/v1/rss?partnerKey=zBaFxRyGKCfxBagJG9b8pqLyndmvo7UU', 'http://www.foxsports.com/', 'fox-sports.jpg'),
+  ('Sports Illustrated', 'http://www.si.com/rss/si_topstories.rss', 'http://www.si.com/', 'sports-illustrated.png'),
+  ('Cosmpolitan', 'http://www.cosmopolitan.com/rss/all.xml', 'http://www.cosmopolitan.com/', 'cosmpolitan.png'),
+  ('Vogue', 'https://www.vogue.com/feed/', 'http://www.vogue.com/', 'vogue.png')
+;

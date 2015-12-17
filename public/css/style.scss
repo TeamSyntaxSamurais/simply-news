@@ -4,6 +4,8 @@ $ltblue: #3498DB;
 $off-white: #ECF0F1;
 $red: #E74C3C;
 $footer-height: 40px;
+$source-padding-full: 0.5em;
+$source-padding-half: $source-padding-full / 2;
 
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
   font-weight: 400;
@@ -69,6 +71,9 @@ header, footer {
 .alert.alert-top {
   margin-top: 1em;
 }
+.category-title {
+  background: #EFEFEF;
+}
 .source-title {
   background: $off-white;
 }
@@ -77,13 +82,20 @@ header, footer {
     border-bottom: 1px solid $off-white;
   }
 }
+.news-source.right-source {
+  padding-right: $source-padding-full;
+  padding-left: $source-padding-half;
+}
+.news-source:last-child {
+  margin-bottom: $source-padding-full;
+}
 .news-source {
-  margin: 0;
   position: relative;
+  padding: $source-padding-full $source-padding-half 0 $source-padding-full;
+  float: left;
   img {
-    box-sizing: border-box;
     width: 100%;
-    border: 5px solid $darkblue;
+    border: 1px solid $darkblue;
     border-radius: 3px;
     margin: 0;
     padding: 0;
@@ -100,8 +112,8 @@ header, footer {
   }
   i {
     position: absolute;
-    bottom: 0.5em;
-    right: 0.75em;
+    bottom: $source-padding-half;
+    right: $source-padding-full;
     font-size: 1.5em;
     color: #777;
   }
@@ -109,12 +121,9 @@ header, footer {
     color: $ltblue;
   }
 }
-// .news-source.left-source {
-//   padding: 0.5em 0.25em 0 0.5em;
-// }
-// .news-source.right-source {
-//   padding: 0.5em 0.5em 0 0.25em;
-// }
+.right-source i {
+  right: $source-padding-full * 1.25;
+}
 .form-wrapper {
   margin-top: 1.5em;
 }

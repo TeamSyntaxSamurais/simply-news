@@ -130,12 +130,14 @@ class SourceController < ApplicationController
 
   def clean_description item
     desc = item["description"]
-    desc.gsub!(/<div.*?\/div>/,'') ## remove divs
-    desc.gsub!(/<a.*?\/a>/, '') ## remove links
-    desc.gsub!(/<iframe.*?\/iframe>/, '') ## remove iframes
-    desc.gsub!(/<img.*?>/,'') ## remove images
-    desc.gsub!('<br/>', '') ## remove line breaks
-    desc.gsub!('<br>', '')
+    if desc.is_a? String
+      desc.gsub!(/<div.*?\/div>/,'') ## remove divs
+      desc.gsub!(/<a.*?\/a>/, '') ## remove links
+      desc.gsub!(/<iframe.*?\/iframe>/, '') ## remove iframes
+      desc.gsub!(/<img.*?>/,'') ## remove images
+      desc.gsub!('<br/>', '') ## remove line breaks
+      desc.gsub!('<br>', '')
+    end
   end
 
 end

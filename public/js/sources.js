@@ -1,13 +1,15 @@
-$(document).ready( function() {
-  $.ajax({
+jQuery(document).ready( function() {
+  jQuery.ajax({
     url: '/category/categories',
     type: 'GET',
     dataType: 'json',
     success: function(data) {
-      for( i = 0; i < data.length; i++ ) {
-        var category = new Category(data[i]);
-        category.initialize();
-        category.render();
+      for( var i = 0; i < data.length; i++ ) {
+        if(data[i].sources.length != 0) { // if category has sources
+          var category = new Category(data[i]); // create and render the Category
+          category.initialize();
+          category.render();
+        }
       }
     },
     error: function(data) {
@@ -18,8 +20,9 @@ $(document).ready( function() {
 });
 
 var Category = function(category) {
-  this.id = category.id;
-  this.name = category.name;
+  this.id = category.category.id;
+  this.name = category.category.name;
+  this.sources = category.sources;
   this.initialize = function() {
     this.container = document.createElement('section');
     this.container.className = 'category';
@@ -33,26 +36,14 @@ var Category = function(category) {
     this.appendTo = document.getElementById('news-sources-container');
     this.container.appendChild(this.col);
     this.appendTo.appendChild(this.container);
-    this.getSources();
+    this.renderSources();
   }
-  this.getSources = function() {
-    $.ajax({
-      url: '/category/category-sources/' + this.id,
-      type: 'GET',
-      container: this.container,
-      dataType: 'json',
-      success: function(data) {
-        for( i = 0; i < data.length; i++ ) {
-          var source = new Source(data[i], i, this.container);
-          source.initialize();
-          source.render();
-        }
-      },
-      error: function(data) {
-        console.log('error');
-        console.log(data);
-      }
-    });
+  this.renderSources = function() {
+    for( var i = 0; i < this.sources.length; i++ ) {
+      var source = new Source(this.sources[i], i, this.container);
+      source.initialize();
+      source.render();
+    }
   }
 }
 

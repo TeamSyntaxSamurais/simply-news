@@ -1,8 +1,30 @@
 class CategoryController < ApplicationController
 
   get '/categories' do
-    @categories = Category.all
-    @categories = @categories.sort_by { |category| category[:name] }
+    category_records = Category.all
+    category_records = category_records.sort_by { |category| category[:name] }
+    @categories = []
+    category_records.each do |category|
+      all_sources = category.sources
+      unless all_sources.nil?
+        sources = []
+        all_sources.each do |source|
+          sources.push(source.attributes.to_options)
+        end
+        if account
+          account_sources = account_record.sources
+          account_sources.each do |account_source|
+            if sources.find { |source| source[:name] == account_source[:name] }
+              sources.find { |source| source[:name] == account_source[:name] }[:checked] = true
+            end
+          end
+        end
+        sources = sources.sort_by { |source| source[:name] }
+        @categories.push({category: category.attributes.to_options, sources: sources})
+      else
+        return false
+      end
+    end
     return @categories.to_json
   end
 

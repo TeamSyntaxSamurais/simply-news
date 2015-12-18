@@ -18,7 +18,7 @@ class AccountController < ApplicationController
 
     session[:current_account] = account
     session[:alert] = 'Your account&rsquo;s been created.'
-    redirect '/choose-sources'
+    redirect '/category/sources'
   end
 
   get '/login' do

@@ -160,7 +160,8 @@ footer.row {
     cursor: pointer; }
 
 @media (min-width: 768px) {
-  .news-sources .left-source, .news-sources .right-source {
-    padding: 0.5em 0.5em 0; } }
+  .news-source, .news-source.right-source {
+    padding-right: 0.5em;
+    padding-left: 0.25em; } }
 
 /*# sourceMappingURL=style.css.map */

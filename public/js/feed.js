@@ -25,14 +25,15 @@ var Source = function(source) {
   this.container = document.getElementById('feed-container');
   this.initialize = function() {
     this.sourceContainer = document.createElement('section');
-    this.sourceContainer.className = 'row news-source';
+    this.sourceContainer.className = 'row';
     this.sourceName = document.createElement('div');
     this.sourceName.className = 'col-xs-12 source-title';
     this.sourceName.innerHTML = '<h3>' + this.name + '</h3>';
     this.articleContainer = document.createElement('div');
     this.articleContainer.className = 'col-xs-12 article-list';
     this.articleContainer.id = 'source_' + this.id;
-    this.moreLink = document.createElement('article');
+    this.moreLink = document.createElement('div');
+    this.moreLink.className = 'col-xs-12';
     this.moreLink.innerHTML = '<h4><a href="/source/' + this.id + '">More from ' + this.name + '</a></h4>';
   }
   this.render = function() {
@@ -40,7 +41,7 @@ var Source = function(source) {
     this.sourceContainer.appendChild(this.articleContainer);
     this.container.appendChild(this.sourceContainer);
     this.getArticles();
-    this.container.appendChild(this.moreLink);
+    this.sourceContainer.appendChild(this.moreLink);
   }
   this.getArticles = function() {
     $.ajax({

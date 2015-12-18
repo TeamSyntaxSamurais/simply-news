@@ -131,12 +131,17 @@ class SourceController < ApplicationController
   def clean_description item
     desc = item["description"]
     if desc.is_a? String
+      split_ps = desc.split(/(<\/p>)/) ## split paragraphs
+      if split_ps.count > 1
+        desc = split_ps[0] + '</p>' ## Keep the first paragraph
+      end
       desc.gsub!(/<div.*?\/div>/,'') ## remove divs
       desc.gsub!(/<a.*?\/a>/, '') ## remove links
       desc.gsub!(/<iframe.*?\/iframe>/, '') ## remove iframes
       desc.gsub!(/<img.*?>/,'') ## remove images
       desc.gsub!('<br/>', '') ## remove line breaks
       desc.gsub!('<br>', '')
+      item["description"] = desc
     end
   end
 

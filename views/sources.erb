@@ -1,3 +1,28 @@
+<% if !session[:viewed_overlay] && !@account  ## display overlay on first visit %>
+  <div class="overlay-outer" id="overlay-outer">
+    <div class="overlay-inner">
+      <i class="fa fa-times-circle close-overlay"></i>
+      <div class="overlay">
+        <div class="row">
+          <div class="col-xs-12 text-center">
+            <h2>Simply News</h2>
+            <div class="form-group">
+              <label for="register">Choose the news you want to see.</label>
+              <button type="button" name="register" class="btn btn-primary form-control close-overlay" id="close-overlay">Select Sources</button>
+            </div>
+            <div class="form-group">
+              <label for="login">Log in to view your custom feed.</label>
+              <a href="/account/login"><button type="button" name="login" class="btn btn-warning form-control">Login</button></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% session[:viewed_overlay] = true ## hide overlay for this session
+end %>
+
+
 <h3>Click a source to add or remove it from your feed.</h3>
   <form action="/save-sources" method="post">
     <section class="row" id="news-sources-container">

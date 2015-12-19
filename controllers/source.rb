@@ -148,7 +148,7 @@ class SourceController < ApplicationController
   def parse_date item
     date = item["pubDate"] || item ["date"] || item["published"]
     if date
-      item["display_date"] = (Time.parse(date) + Time.zone_offset('EST')).strftime("%A, %l:%M%P%Z")
+      item["display_date"] = (Time.parse(date) + Time.zone_offset('EST')).strftime("%A, %l:%M%P")
     end
   end
 

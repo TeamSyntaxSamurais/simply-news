@@ -4,6 +4,7 @@ $(document).ready( function() {
     type: 'GET',
     dataType: 'json',
     success: function(data) {
+      console.log(data);
       for( i = 0; i < data.length; i++ ) {
         var source = new Source(data[i]);
         source.initialize();

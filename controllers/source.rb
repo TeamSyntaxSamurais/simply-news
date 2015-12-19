@@ -3,7 +3,10 @@ class SourceController < ApplicationController
   require 'cgi'
 
   get '/' do
-    t1 = Time.now
+    redirect '/category/sources'
+  end
+
+  get '/feed' do
     @title = 'News Feed'
     @account = account
     erb :feed
@@ -44,33 +47,51 @@ class SourceController < ApplicationController
   end
 
   post '/save-sources' do
-    authorization_check
-    account_id = session[:current_account][:id]
+    if account
+      account_id = session[:current_account][:id]
+    end
     selected = []
     params.each do |id,on|
       source_id = id.split('_')[1].to_i
       if on == "on"
-        account_source = AccountSource.new
-        account_source.account_id = account_id
-        account_source.source_id = source_id
-        account_source.save
+        if account
+          account_source = AccountSource.new
+          account_source.account_id = account_id
+          account_source.source_id = source_id
+          account_source.save
+        end
         selected.push(source_id)
       end
     end
-    AccountSource.where({account_id: account_id}).each do |entry|
-      if !selected.include? entry[:source_id]
-        entry.delete
+    session[:sources] = selected
+    if account
+      AccountSource.where({account_id: account_id}).each do |entry|
+        if !selected.include? entry[:source_id]
+          entry.delete
+        end
       end
     end
     session[:alert] = 'News sources updated.'
-    redirect '/'
+    redirect '/feed'
   end
 
   def get_sources
-    if session[:current_account].nil? || account_record.sources.nil?
+    ## get sources selected in session
+    if session[:sources]
+      sources = []
+      session[:sources].each do |id|
+        sources.push(Source.find(id))
+      end
+    elsif session[:current_account].nil? || account_record.sources.nil?
+      ## Get all sources if no accout and none are selected in this session
       sources = Source.all
     else
       sources = account_record.sources
+      session[:sources] = []
+      ## store source ids in session if they're not for some reason
+      sources.each do |source|
+        session[:sources].push(source[:id])
+      end
     end
     return sources.sort_by { |source| source[:name] }
   end

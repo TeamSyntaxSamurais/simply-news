@@ -11,11 +11,18 @@ class CategoryController < ApplicationController
         all_sources.each do |source|
           sources.push(source.attributes.to_options)
         end
-        if account
-          account_sources = account_record.sources
-          account_sources.each do |account_source|
-            if sources.find { |source| source[:name] == account_source[:name] }
-              sources.find { |source| source[:name] == account_source[:name] }[:checked] = true
+        if session[:sources]
+          current_sources = []
+          session[:sources].each do |id|
+            current_sources.push(Source.find(id))
+          end
+        elsif account
+          current_sources = account_record.sources
+        end
+        if current_sources
+          current_sources.each do |current_source|
+            if sources.find { |source| source[:name] == current_source[:name] }
+              sources.find { |source| source[:name] == current_source[:name] }[:checked] = true
             end
           end
         end

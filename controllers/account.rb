@@ -6,16 +6,27 @@ class AccountController < ApplicationController
   end
 
   post '/register' do
-    # calls method with arg of username from register form
 
+    ## Alert if email is already in database
     if does_account_exist(params[:email])
       session[:alert] = 'Your email address is already registered.'
       redirect '/account/login'
     end
 
+    ## Create account
     account = Account.new(first_name: params[:first_name], email: params[:email], password: params[:password])
     account.save
 
+    ## Save selected sources to new account
+    if !session[:sources].nil?
+      session[:sources].each do |source|
+        account_source = AccountSource.new
+        account_source.account_id = account[:id]
+        account_source.source_id = source[:id]
+        account_source.save
+      end
+    end
+    
     session[:current_account] = account
     session[:alert] = 'Your account&rsquo;s been created.'
     redirect '/category/sources'

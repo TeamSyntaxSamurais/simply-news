@@ -23,7 +23,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/">Simply News</a>
+          <a class="navbar-brand" href="/feed">Simply News</a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="main-navigation">
@@ -31,9 +31,10 @@
 
           </ul>
           <ul class="nav navbar-nav navbar-right">
+            <li><a href="/feed">News Feed</a></li>
+            <li><a href="/category/sources">News Sources</a></li>
             <li><a href="/account/about">About</a></li>
             <% if @account %>
-              <li><a href="/category/sources">News Sources</a></li>
               <li><a href="/account/update"><%= @account[:first_name] %></a></li>
               <li><a href="/account/logout">Logout</a></li>
             <% else %>

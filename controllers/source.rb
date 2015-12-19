@@ -139,8 +139,8 @@ class SourceController < ApplicationController
       desc.gsub!(/<a.*?\/a>/, '') ## remove links
       desc.gsub!(/<iframe.*?\/iframe>/, '') ## remove iframes
       desc.gsub!(/<img.*?>/,'') ## remove images
-      desc.gsub!('<br/>', '') ## remove line breaks
-      desc.gsub!('<br>', '')
+      desc.gsub!(/<br\/>/, '') ## remove line breaks
+      desc.gsub!(/<br>/, '')
       item["description"] = desc
     end
   end

@@ -8,7 +8,7 @@
     <% articles = rss_to_hash source[:rss_url], qty
     articles.each do |article| %>
       <article>
-        <h4><a href="<%= article["link"] %>" target="_blank"><%= article["title"] %></a></h4>
+        <h4><a href="<%= article["link"] %>" target="_blank"><%= article["title"] %></a> <small> <%= article["display_date"] %></small></h4>
         <p>
           <%= article["description"] %>
         </p>

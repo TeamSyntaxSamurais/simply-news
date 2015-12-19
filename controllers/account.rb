@@ -64,7 +64,7 @@ class AccountController < ApplicationController
     session[:current_account] = nil
     session[:sources] = nil
     session[:alert] = 'Logout successful.'
-    redirect '/'
+    redirect '/feed'
   end
 
   get '/update' do

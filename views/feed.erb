@@ -2,13 +2,16 @@
   <%= erb :partial_alert, :locals => { :alert => session[:alert], :type => 'success' } %>
   <% session[:alert] = nil
 end %>
+
 <script src="/js/feed.js"></script>
+
 <div id="feed-container">
 
 </div>
+
 <% if session[:sources] && !account %>
   <div class = "row row-buffer">
-    <div class="col-xs-12">
+    <div class="col-xs-12">git
       <a href="/account/register"><button type="button" class="btn btn-primary form-control">Register to save your feed.</button></a>
     </div>
   </div>

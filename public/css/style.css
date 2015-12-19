@@ -64,6 +64,8 @@ header, footer {
 
 .article-list article {
   border-bottom: 1px solid #ECF0F1; }
+.article-list h4 small {
+  white-space: nowrap; }
 
 .news-source.right-source {
   padding-right: 0.5em;

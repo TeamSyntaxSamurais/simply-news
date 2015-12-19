@@ -1,6 +1,7 @@
 class SourceController < ApplicationController
 
   require 'cgi'
+  require 'time'
 
   get '/' do
     redirect '/category/sources'
@@ -115,6 +116,7 @@ class SourceController < ApplicationController
     end
     items.each do |item|
       parse_link item ## normalize link format
+      parse_date item ## normalize date format
       parse_description item ## normalize description format
       clean_description item ## remove unwanted elements
     end
@@ -140,6 +142,13 @@ class SourceController < ApplicationController
       elsif item["link"].is_a? Array # NYT format
         item["link"] = item["link"][0]["href"]
       end
+    end
+  end
+
+  def parse_date item
+    date = item["pubDate"] || item ["date"] || item["published"]
+    if date
+      item["display_date"] = (Time.parse(date) + Time.zone_offset('EST')).strftime("%A, %l:%M%P%Z")
     end
   end
 

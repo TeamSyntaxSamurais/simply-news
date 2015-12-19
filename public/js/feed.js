@@ -4,7 +4,6 @@ $(document).ready( function() {
     type: 'GET',
     dataType: 'json',
     success: function(data) {
-      console.log(data);
       for( i = 0; i < data.length; i++ ) {
         var source = new Source(data[i]);
         source.initialize();
@@ -56,7 +55,7 @@ var Source = function(source) {
       },
       success: function(data) {
         for( i = 0; i < data.length; i++ ) {
-          // console.log(data[i]);
+          console.log(data[i]);
           // console.log(this.container);
           var article = new Article(data[i], this.container);
           article.initialize();
@@ -75,10 +74,14 @@ var Article = function(article, container) {
   this.description = article.description;
   this.link = article.link;
   this.container = container;
+  this.date = article.display_date;
   this.initialize = function() {
     this.element = document.createElement('article');
     this.heading = document.createElement('h4');
-    this.heading.innerHTML = '<a href="' + this.link + '" target="_blank">' + this.title + '</a>';
+    this.heading.innerHTML = '<a href="' + this.link + '" target="_blank">' + this.title + '</a> ';
+    this.byline = document.createElement('small');
+    this.byline.innerHTML = ' ' + this.date;
+    this.heading.appendChild(this.byline);
     this.element.appendChild(this.heading);
     this.textContent = document.createElement('p');
     this.textContent.innerHTML = this.description;

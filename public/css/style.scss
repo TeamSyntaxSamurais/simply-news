@@ -81,6 +81,9 @@ header, footer {
   article {
     border-bottom: 1px solid $off-white;
   }
+  h4 small {
+    white-space: nowrap;
+  }
 }
 .news-source.right-source {
   padding-right: $source-padding-full;

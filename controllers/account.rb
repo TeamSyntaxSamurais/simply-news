@@ -18,18 +18,18 @@ class AccountController < ApplicationController
     account.save
 
     ## Save selected sources to new account
-    if !session[:sources].nil?
-      session[:sources].each do |source|
+    if session[:sources]
+      session[:sources].each do |id|
         account_source = AccountSource.new
         account_source.account_id = account[:id]
-        account_source.source_id = source[:id]
+        account_source.source_id = id
         account_source.save
       end
     end
-    
+
     session[:current_account] = account
     session[:alert] = 'Your account&rsquo;s been created.'
-    redirect '/category/sources'
+    redirect '/feed'
   end
 
   get '/login' do
@@ -62,6 +62,7 @@ class AccountController < ApplicationController
 
   get '/logout' do
     session[:current_account] = nil
+    session[:sources] = nil
     session[:alert] = 'Logout successful.'
     redirect '/'
   end

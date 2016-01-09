@@ -43,7 +43,7 @@ class AccountController < ApplicationController
       if account
         session[:current_account] = account
         session[:alert] = 'Login successful.'
-        redirect '/'
+        redirect '/feed'
       else
         session[:alert] = 'Sorry, that email and password combination wasn&rsquo;t found.'
         redirect '/account/login'

@@ -44,9 +44,9 @@ GEM
       activerecord (>= 3.2)
       sinatra (~> 1.0)
     slop (3.6.0)
-    thread_safe (0.3.5)
+    thread_safe (0.3.6)
     tilt (2.0.1)
-    tzinfo (1.2.2)
+    tzinfo (1.2.10)
       thread_safe (~> 0.1)
 
 PLATFORMS
